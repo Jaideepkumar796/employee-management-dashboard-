@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Employee Management Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">EM</div>
+        <div class="brand-text">
+          <h1>Employee Dashboard</h1>
+          <p class="sub">Professional · Dark · Corporate</p>
+        </div>
+      </div>
+      <div class="controls">
+        <div class="search-wrap">
+          <input id="searchInput" placeholder="Search name, email, phone, role..." />
+          <button id="clearSearch" title="Clear">✖</button>
+        </div>
+        <button id="addOpen" class="btn primary">+ Add Record</button>
+      </div>
+    </header>
+
+    <main class="container">
+      <aside class="panel" id="formPanel">
+        <form id="employeeForm" autocomplete="off">
+          <h2 id="formTitle">Add Employee</h2>
+
+          <div class="form-row">
+            <label>Name</label>
+            <input id="name" required />
+          </div>
+
+          <div class="form-row">
+            <label>Email / Gmail</label>
+            <input id="email" type="email" placeholder="name@gmail.com" required />
+          </div>
+
+          <div class="form-row">
+            <label>Phone / Number</label>
+            <input id="phone" inputmode="tel" pattern="[0-9+()-\\s]*" placeholder="+92 3xx xxxxxxx" required />
+          </div>
+
+          <div class="form-row">
+            <label>Role / Category</label>
+            <select id="role" required>
+              <option value="">Select role</option>
+              <option>Employee</option>
+              <option>Manager</option>
+              <option>Developer</option>
+              <option>Designer</option>
+              <option>HR</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label>Work Address</label>
+            <input id="address" />
+          </div>
+
+          <div class="form-row salary-row">
+            <label>Salary</label>
+            <div class="salary-cont">
+              <input id="salary" type="number" min="0" step="0.01" placeholder="0.00" required />
+              <select id="currency" class="currency">
+                <option>PKR</option>
+                <option>USD</option>
+                <option>EUR</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn primary" id="saveBtn">Save</button>
+            <button type="button" class="btn" id="cancelBtn">Cancel</button>
+          </div>
+
+          <input type="hidden" id="employeeId" />
+        </form>
+      </aside>
+
+      <section class="table-wrap">
+        <div class="table-top">
+          <div class="summary" id="summary">0 records</div>
+          <div class="filters">
+            <label>Filter:</label>
+            <select id="filterField">
+              <option value="name">Name</option>
+              <option value="email">Email</option>
+              <option value="phone">Phone</option>
+              <option value="role">Role</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table id="employeeTable" class="employees">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Role</th>
+                <th>Address</th>
+                <th>Salary</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+
+          <div id="emptyState" class="empty">No records yet. Click "Add Record" to create one.</div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <small>© 2025 Employee Management Dashboard — All rights reserved</small>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
